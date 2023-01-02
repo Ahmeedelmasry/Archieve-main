@@ -122,6 +122,29 @@ body,
   background-color: #ffffff;
   height: 36.8px;
 }
+.toolbar .toolbar-container .date-dropdown {
+  width: 502px;
+  background-color: #292e58;
+  border-radius: 10px;
+  height: 152.5px;
+  right: -15px !important;
+  left: unset !important;
+  border-top: unset;
+}
+.toolbar .toolbar-container .date-dropdown input {
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 28.56px;
+  padding: 0 10px;
+  text-align: end;
+  border-radius: 7px;
+}
+.toolbar .toolbar-container .date-dropdown label {
+  font-size: 28px;
+  color: #ffffff;
+  margin-left: 15px;
+}
 .toolbar .toolbar-container svg {
   margin-right: 15px;
 }
@@ -224,11 +247,11 @@ body,
   border-radius: 15px;
 }
 .charts .charts-last-box .last-charts-div {
-  padding: 70px 120px 0;
+  padding: 70px 140px 0;
 }
 .charts .charts-last-box .last-charts-div h4 {
   text-align: end;
-  margin-right: 100px;
+  margin-right: -60px;
   padding-bottom: 5px;
   font-size: 32px;
   font-weight: bold;

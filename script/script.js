@@ -5,6 +5,17 @@ window.onload = () => {
     e.currentTarget.classList.toggle("active-link");
   });
 
+  //Close Toolbar Menus
+  function closeMenu(closeBtn) {
+    let btn = document.querySelector(closeBtn.dataset.btn);
+    btn.setAttribute("aria-expanded", false);
+    btn.parentElement.classList.remove("show");
+    btn.parentElement.querySelector(".dropdown-menu").classList.remove("show");
+  }
+  const dateCloseBtn = document.querySelector(".close-date-menu");
+  dateCloseBtn.addEventListener("click", (e) => {
+    closeMenu(e.currentTarget);
+  });
   //Charts Lines
   const ctx = document.getElementById("myChart");
 
@@ -69,14 +80,13 @@ window.onload = () => {
       datasets: [
         {
           data: [3, 3, 3],
-          borderWidth: 1,
           backgroundColor: ["#502884", "#0280FE", "#29CB97"],
         },
       ],
     },
     options: {
       responsive: true,
-      cutout: "88%",
+      cutout: "86%",
       plugins: {
         legend: {
           display: false,
@@ -85,10 +95,35 @@ window.onload = () => {
     },
   });
 
-  //Charts Circle
+  //Customize Chart Line Shadow
+  class Custom extends Chart.LineController {
+    //Call the line controller method to draw points
+    draw() {
+      super.draw(arguments);
+
+      //Custom Drawing
+      const ctx_3 = this.chart.ctx;
+      const _stroke = ctx_3.stroke;
+      ctx_3.stroke = function () {
+        ctx_3.save();
+        ctx_3.shadowColor = "#686868";
+        ctx_3.shadowBlur = 17;
+        ctx_3.shadowOffsetX = 0;
+        ctx_3.shadowOffsetY = 4;
+        _stroke.apply(this, arguments);
+        ctx_3.restore();
+      };
+    }
+  }
+  Custom.id = "shadowLine";
+  Custom.defaults = Chart.LineController.defaults;
+
+  //Register
+  Chart.register(Custom);
+  //Charts Last Section
   const ctx_3 = document.getElementById("LastCharts");
   new Chart(ctx_3, {
-    type: "line",
+    type: "shadowLine",
     data: {
       labels: [
         "يناير",
@@ -107,7 +142,7 @@ window.onload = () => {
         {
           data: [5, 3, 1, 5, 3, 5, 3, 1, 5, 3, 2, 4].reverse(),
           backgroundColor: "#502884",
-          tension: 0.1,
+          tension: 0.4,
           fill: false,
           label: "First",
           borderWidth: 2,
@@ -117,16 +152,16 @@ window.onload = () => {
         {
           data: [1, 4, 2, 1, 5, 1, 4, 2, 1, 5, 1, 3].reverse(),
           backgroundColor: "red",
-          tension: 0.1,
+          tension: 0.4,
           fill: false,
           label: "المكاتبات الواردة",
           borderWidth: 2,
-          borderColor: "#0280fe",
+          borderColor: "#868686",
         },
         {
           data: [4, 3, 5, 5, 1, 4, 3, 5, 5, 1, 3, 1].reverse(),
           backgroundColor: "green",
-          tension: 0.1,
+          tension: 0.4,
           fill: false,
           label: "المكاتبات الهامة",
           borderWidth: 2,
@@ -135,6 +170,7 @@ window.onload = () => {
       ],
     },
     options: {
+      responsive: true,
       aspectRatio: 3,
       scales: {
         y: {

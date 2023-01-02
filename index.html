@@ -340,22 +340,76 @@
             </svg>
             نوع المكاتبة
           </button>
-          <button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17.154"
-              height="14.702"
-              viewBox="0 0 17.154 14.702"
+          <div class="dropdown">
+            <button
+              class="date-btn"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
-              <path
-                id="XMLID_276_"
-                d="M40.1,58.424a1.22,1.22,0,0,0-1.12-.715H24.3a1.221,1.221,0,0,0-1.121.715,1.208,1.208,0,0,0,.182,1.3h0l5.83,6.784V71.8a.613.613,0,0,0,.953.51l3.675-2.45a.613.613,0,0,0,.273-.51V66.512l5.831-6.784A1.208,1.208,0,0,0,40.1,58.424Z"
-                transform="translate(-23.065 -57.708)"
-                fill="#292e58"
-              />
-            </svg>
-            التاريخ
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17.154"
+                height="14.702"
+                viewBox="0 0 17.154 14.702"
+              >
+                <path
+                  id="XMLID_276_"
+                  d="M40.1,58.424a1.22,1.22,0,0,0-1.12-.715H24.3a1.221,1.221,0,0,0-1.121.715,1.208,1.208,0,0,0,.182,1.3h0l5.83,6.784V71.8a.613.613,0,0,0,.953.51l3.675-2.45a.613.613,0,0,0,.273-.51V66.512l5.831-6.784A1.208,1.208,0,0,0,40.1,58.424Z"
+                  transform="translate(-23.065 -57.708)"
+                  fill="#292e58"
+                />
+              </svg>
+              التاريخ
+            </button>
+            <div
+              class="dropdown-menu date-dropdown p-0"
+              aria-labelledby="dropdownMenuButton"
+            >
+              <form action="" class="w-100 p-4 pt-5 position-relative">
+                <span
+                  class="position-absolute p-1 close-date-menu"
+                  data-btn=".date-btn"
+                  style="
+                    left: 2px;
+                    top: 2px;
+                    outline: 1px solid white;
+                    cursor: pointer;
+                  "
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="19.755"
+                    height="19.434"
+                    viewBox="0 0 19.755 19.434"
+                    class="d-block mx-auto"
+                  >
+                    <path
+                      id="Path_32"
+                      data-name="Path 32"
+                      d="M24.212,5.648,23.04,4.493l-8.7,8.558-8.7-8.563L4.462,5.643l8.7,8.562-8.7,8.557,1.172,1.155,8.7-8.558,8.7,8.563,1.173-1.154-8.7-8.562Z"
+                      transform="translate(-4.457 -4.488)"
+                      fill="#bd214c"
+                    />
+                  </svg>
+                </span>
+                <div class="d-flex align-items-center gap-3 w-100" dir="rtl">
+                  <div class="from d-flex w-50 align-items-center">
+                    <label for="from">من</label>
+                    <input type="date" name="from" id="from" />
+                  </div>
+                  <div class="to d-flex w-50 align-items-center">
+                    <label for="to">الي</label>
+                    <input type="date" name="to" id="to" />
+                  </div>
+                </div>
+                <button type="button" class="px-4 mt-3 d-block mx-auto">
+                  تصفية
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -365,7 +419,7 @@
     <div class="writing-types mt-4">
       <div class="container">
         <div class="row">
-          <div class="col-4">
+          <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-4">
             <div class="card text-center">
               <div class="card-title">
                 <h4>المكاتبات الهامة</h4>
@@ -431,7 +485,7 @@
               <div class="card-footer" style="background-color: #bd214c"></div>
             </div>
           </div>
-          <div class="col-4 ps-5">
+          <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-4 ps-5">
             <div class="card text-center">
               <div class="card-title">
                 <h4>المكاتبات الواردة</h4>
@@ -465,7 +519,7 @@
               <div class="card-footer" style="background-color: #3bb17a"></div>
             </div>
           </div>
-          <div class="col-4 ps-5">
+          <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-4 ps-5">
             <div class="card text-center">
               <div class="card-title">
                 <h4>المكاتبات الصادرة</h4>
@@ -520,7 +574,7 @@
       <div class="container">
         <div class="title"></div>
         <div class="row">
-          <div class="col-7">
+          <div class="col-12 col-md-7 mb-4 mb-lg-0">
             <div class="charts-box pt-5" style="height: 100%">
               <div style="height: 100%">
                 <h4>مكاتبات الجهات</h4>
@@ -530,7 +584,7 @@
               </div>
             </div>
           </div>
-          <div class="col-5">
+          <div class="col-12 col-md-5">
             <div class="charts-box pt-5">
               <h4 style="margin-right: 50px">حالة المكاتبات</h4>
               <div class="second-chart">
@@ -580,10 +634,26 @@
     </footer>
     <!-- End Footer -->
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
     <script src="./script//multiselect-dropdown.js"></script>
-    <script src="./script//bootstrap.js"></script>
-    <script src="./script/bootstrap.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
     <script src="./script/script.js"></script>
   </body>
 </html>
